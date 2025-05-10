@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  /* background: linear-gradient(135deg, #fbc2eb, #a6c1ee); */
+  background-image: url(love-scrabble-word-emotion-wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 2rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.birthday-text {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.top-photos {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.middle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Video */
+.video-wrapper {
+  flex: 0 0 auto;
+  max-width: 260px;
+}
+
+.main-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9/16;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(69, 11, 76, 0.4);
+  object-fit: cover;
+}
+
+/* Images */
+.photo {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  animation: fadeInPhoto 1.2s ease;
+}
+
+.portrait {
+  width: 200px;
+  height: 160px;
+}
+
+.side-photo {
+  width: 180px;
+  height: 180px;
+}
+
+.floating-emoji {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  font-size: 3rem;
+  opacity: 0.3;
+  z-index: -1;
+  animation: floatHeart 6s ease-in-out infinite;
+  transform: translateX(50,-50%);
+  pointer-events: none;
+}
+
+.next_page{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4081;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating animation */
+@keyframes floatHeart {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(-50%) translateY(60px) scale(1.1) rotate(10deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInPhoto {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-photos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .middle-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .side-photo {
+    width: 70px;
+    height: 140px;
+  }
+
+  .main-video {
+    max-width: 80%;
+  }
+
+  .birthday-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portrait {
+    width: 80px;
+    height: 130px;
+  }
+
+  .side-photo {
+    width: 60px;
+    height: 120px;
+  }
+
+  .main-video {
+    max-width: 100%;
+  }
+
+  .birthday-text {
+    font-size: 1.6rem;
+  }
+}

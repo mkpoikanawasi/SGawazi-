@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Selection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            padding: 30px 20px;
+        }
+        
+        .page-title {
+            font-size: 28px;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .sweet-comment {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .movie-image {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .sweet-comment {
+                font-size: 16px;
+            }
+        }
+        
+        .movie-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .movie-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .movie-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .movie-name {
+            margin-top: 10px;
+            color: #e91e63;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .heart-icon {
+            position: absolute;
+            color: #e91e63;
+            font-size: 16px;
+        }
+        
+        .continue-btn {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.2s ease;
+        }
+        
+        .continue-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-frame">
+        <div class="browser-top">
+            <div class="browser-controls">
+                <span class="browser-dot"></span>
+            </div>
+            <div class="browser-address">
+                <span></span>
+            </div>
+
+        </div>
+        <div class="content">
+            <div class="page-title">What do you want to watch?</div>
+            <div class="sweet-comment">how can an IT guy be this sweet?😍🥺</div>
+            
+            <div class="movie-grid">
+                <div class="movie-item">
+                    <img src="https://imgs.search.brave.com/8JsXxGEGZV2zN1tN6kMBF0GICACWan5WaBiwD9SzQ-U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iZWFt/LWltYWdlcy53YXJu/ZXJtZWRpYWNkbi5j/b20vMjAyNC0xMS9i/ZWV0bGVqdWljZS10/cmFpbGVyLWNvdmVy/MDIuanBnP2hvc3Q9/d2JkLWRvdGNvbS1k/cnVwYWwtcHJkLXVz/LWVhc3QtMS5zMy5h/bWF6b25hd3MuY29t/Jnc9NDgw" alt="Beetlejuice Beetlejuice" class="movie-image" data-movie="beetlejuice">
+                    <div class="movie-name">Beetlejuice Beetlejuice</div>
+                </div>
+                
+                <div class="movie-item">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNjE5NzA4ZDctOTJkZi00NzM0LTkwOTYtMDI4MmNkMzIxODhkXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg" alt="Dul Muluk Dul Malik" class="movie-image" data-movie="dulmuluk">
+                    <div class="movie-name">Dul Muluk Dul Malik</div>
+                    <div class="heart-icon" style="bottom: 30px; left: 0;">❤️</div>
+                </div>
+                
+                <div class="movie-item">
+                    <img src="https://imgs.search.brave.com/KPLNqa_Feec5aJU_TYYs1dz0PY1TPduxdzFzjOcnQfk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL00v/TVY1QllXRmlZV015/TkRRdFptWTBNQzAw/T0dReUxUaGtZamd0/WkdWaE5UZGlabUl6/WVRFeFhrRXlYa0Zx/Y0dkZVFWUm9hWEpr/VUdGeWRIbEpibWRs/YzNScGIyNVhiM0py/Wm14dmR3QEAuX1Yx/X1FMNzVfVVkyODFf/Q1IwLDAsNTAwLDI4/MV8uanBn" alt="Hellboy: The Crooked Man" class="movie-image" data-movie="hellboy">
+                    <div class="movie-name">Hellboy: The Crooked Man</div>
+                    <div class="heart-icon" style="top: 10px; right: 0;">❤️</div>
+                </div>
+                
+                <div class="movie-item">
+                    <img src="https://imgs.search.brave.com/XS-9iZUBYFBWx3RJJWX47oLPHnMo1DXB083dHrn1wzg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwLmdhbWVyYW50/aW1hZ2VzLmNvbS93/b3JkcHJlc3Mvd3At/Y29udGVudC91cGxv/YWRzLzIwMjMvMDkv/bmFydXRvLmpwZw" alt="Never Let Go" class="movie-image" data-movie="neverletgo">
+                    <div class="movie-name">Naruto</div>
+                </div>
+                
+                <div class="movie-item">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZTNiNDA4NmMtNTExNi00YmViLWJkMDAtMDAxNmRjY2I2NDVjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg" alt="Transformers One" class="movie-image" data-movie="transformers">
+                    <div class="movie-name">Transformers One</div>
+                </div>
+                
+                <div class="movie-item">
+                    <img src="https://cdn.marvel.com/content/1x/deadpoolandwolverine_lob_pur_digital_01.png" alt="Deadpool & Wolverine" class="movie-image" data-movie="deadpool">
+                    <div class="movie-name">Deadpool & Wolverine</div>
+                    <div class="heart-icon" style="top: 30px; right: -10px;">❤️</div>
+                </div>
+            </div>
+            
+            <button class="continue-btn">Continue :-) :-) :-)</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const continueBtn = document.querySelector('.continue-btn');
+            const movieImages = document.querySelectorAll('.movie-image');
+            let selectedMovie = null;
+            
+            // Handle movie selection
+            movieImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // Remove selection from all images
+                    movieImages.forEach(image => {
+                        image.style.border = 'none';
+                    });
+                    
+                    // Add selection to clicked image
+                    this.style.border = '3px solid #e91e63';
+                    selectedMovie = this.dataset.movie;
+                });
+            });
+            
+            // Handle continue button click
+            continueBtn.addEventListener('click', function() {
+                if (selectedMovie) {
+                    // Store the selected movie in localStorage to use on the next page
+                    localStorage.setItem('selectedMovie', selectedMovie);
+                }
+                
+                // Redirect to the confirmation page
+                window.location.href = 'date.html';
+            });
+        });
+    </script>
+</body>
+</html>

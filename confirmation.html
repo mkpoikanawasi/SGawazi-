@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            min-height: 400px;
+        }
+        
+        .confirmation-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .confirmation-title {
+            font-size: 32px;
+            color: #e91e63;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .confirmation-date {
+            font-size: 22px;
+            color: #e91e63;
+            text-align: center;
+        }
+        
+        .decoration {
+            position: absolute;
+            color: #ffb6c1;
+            opacity: 0.8;
+            font-size: 24px;
+            z-index: 0;
+        }
+        
+        /* Top decorations */
+        .top-decorations {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Bottom decorations */
+        .bottom-decorations {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        
+        /* Side decorations */
+        .side-decoration-left {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .side-decoration-right {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .confirmation-title {
+                font-size: 28px;
+            }
+            
+            .confirmation-date {
+                font-size: 18px;
+            }
+            
+            .confirmation-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .decoration {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .confirmation-title {
+                font-size: 24px;
+            }
+            
+            .confirmation-date {
+                font-size: 16px;
+            }
+            
+            .confirmation-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .decoration {
+                font-size: 18px;
+            }
+            
+            .side-decoration-left,
+            .side-decoration-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-frame">
+        <div class="browser-top">
+
+            <div class="browser-address">
+                <span></span>
+            </div>
+
+        </div>
+        <div class="content">
+            <!-- Top decorations -->
+            <div class="top-decorations">
+                <span class="decoration">❤️</span>
+                <span class="decoration">⭐</span>
+                <span class="decoration">🎀</span>
+            </div>
+            
+            <!-- Main content -->
+            <img src="https://media.tenor.com/5OinfrPxBsAAAAAM/cat-cute.gif" alt="Cute cat" class="confirmation-image">
+            <div class="confirmation-title">See you soon!❤️</div>
+            <div class="confirmation-date" id="date-display">Don't forget on 2024-09-27 at 18:00</div>
+            
+            <!-- Side decorations -->
+            <div class="side-decoration-left">❤️</div>
+            <div class="side-decoration-right">❤️</div>
+            
+            <!-- Bottom decorations -->
+            <div class="bottom-decorations">
+                <span class="decoration">❤️</span>
+                <span class="decoration">⭐</span>
+                <span class="decoration">🎀</span>
+                <span class="decoration">❤️</span>
+                <span class="decoration">⭐</span>
+                <span class="decoration">🎀</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateDisplay = document.getElementById('date-display');
+            
+            // Get the selected date and time from localStorage
+            const selectedDate = localStorage.getItem('selectedDate');
+            const selectedTime = localStorage.getItem('selectedTime');
+            
+            // If there's a saved date and time, update the display
+            if (selectedDate && selectedTime) {
+                // Format the date for display
+                const dateObj = new Date(selectedDate);
+                
+                // Format date as YYYY-MM-DD
+                const year = dateObj.getFullYear();
+                const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+                const day = String(dateObj.getDate()).padStart(2, '0');
+                
+                // Create a more readable date format
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const readableDate = dateObj.toLocaleDateString('en-US', options);
+                
+                // Update the display with the selected date and time
+                dateDisplay.textContent = `Don't forget on ${readableDate} at ${selectedTime}`;
+            }
+        });
+    </script>
+</body>
+</html>
